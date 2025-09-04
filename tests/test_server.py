@@ -15,7 +15,7 @@ class TestAnalysisSupportServer:
         """利用可能なツール一覧取得のテスト."""
         tools = await list_tools()
         
-        assert len(tools) == 12  # 全MCPツール数
+        assert len(tools) == 28  # 全MCPツール数
         
         # 各ツールカテゴリが含まれていることを確認
         tool_names = [tool.name for tool in tools]
@@ -30,6 +30,13 @@ class TestAnalysisSupportServer:
         assert "mece_analyze_categories" in tool_names
         assert "mece_create_structure" in tool_names
         
+        # 専用フレームワーク分析ツール
+        assert "swot_analysis" in tool_names
+        assert "4p_analysis" in tool_names
+        assert "3c_analysis" in tool_names
+        assert "timeline_analysis" in tool_names
+        assert "internal_external_analysis" in tool_names
+        
         # SCAMPER法ツール
         assert "scamper_start_session" in tool_names
         assert "scamper_apply_technique" in tool_names
@@ -37,6 +44,21 @@ class TestAnalysisSupportServer:
         assert "scamper_get_session" in tool_names
         assert "scamper_list_sessions" in tool_names
         assert "scamper_generate_comprehensive" in tool_names
+        
+        # PMBOK RBSツール
+        assert "rbs_create_structure" in tool_names
+        assert "rbs_identify_risks" in tool_names
+        assert "rbs_evaluate_risks" in tool_names
+        assert "rbs_get_analysis" in tool_names
+        assert "rbs_list_analyses" in tool_names
+        
+        # m-SHELLモデルツール
+        assert "mshell_create_analysis" in tool_names
+        assert "mshell_analyze_element" in tool_names
+        assert "mshell_analyze_interface" in tool_names
+        assert "mshell_evaluate_system" in tool_names
+        assert "mshell_get_analysis" in tool_names
+        assert "mshell_list_analyses" in tool_names
     
     @pytest.mark.asyncio
     async def test_why_analysis_start_tool(self) -> None:
