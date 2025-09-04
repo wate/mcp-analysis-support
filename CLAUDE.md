@@ -62,7 +62,7 @@ MCPツール一覧
 
 - `uv sync` - 依存関係インストール
 - `uv run pytest -v` - テスト実行（全テストの成功が必須）
-- `uv run mypy src/` - 型チェック（エラー0が必須）
+- `uv run mypy src/` - 型チェック
 - `uv run analysis-support` - MCPサーバー起動
 - `uv run python -m analysis_support.server` - 開発モード実行
 
