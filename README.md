@@ -5,11 +5,11 @@
 
 専門的分析手法をサポートするMCPサーバーです。
 
-- **5Why分析**: 問題の根本原因を特定するための5回の「なぜ」の繰り返し分析
-- **MECE分析**: 相互排他・網羅的原則による論理的構造化支援（専用フレームワークツール付き）
-- **SCAMPER法**: 7つの技法による創造的思考支援（代替、結合、応用、変更、転用、除去、逆転）
-- **PMBOK RBS**: プロジェクトリスク分類構造とカテゴリ別リスク識別支援
-- **m-SHELLモデル**: 6要素によるヒューマンファクター分析（航空業界由来）
+- 5Why分析: 問題の根本原因を特定するための5回の「なぜ」の繰り返し分析
+- MECE分析: 相互排他・網羅的原則による論理的構造化支援（専用フレームワークツール付き）
+- SCAMPER法: 7つの技法による創造的思考支援（代替、結合、応用、変更、転用、除去、逆転）
+- PMBOK RBS: プロジェクトリスク分類構造とカテゴリ別リスク識別支援
+- m-SHELLモデル: 6要素によるヒューマンファクター分析
 
 インストール
 -------------------------
@@ -42,6 +42,14 @@ uv run analysis-support
 - `mece_create_structure`: トピックに対するMECE構造提案
     - フレームワーク対応: 4P, 3C, SWOT, 時系列, 内外要因, auto（自動選択）
 
+#### MECE専用フレームワーク
+
+- `swot_analysis`: SWOT分析（強み・弱み・機会・脅威）
+- `4p_analysis`: 4P分析（Product・Price・Place・Promotion）
+- `3c_analysis`: 3C分析（Customer・Competitor・Company）  
+- `timeline_analysis`: 時系列分析（過去・現在・未来）
+- `internal_external_analysis`: 内外分析（内部要因・外部要因）
+
 #### SCAMPER法
 
 - `scamper_start_session`: SCAMPER創造的思考セッション開始
@@ -51,6 +59,23 @@ uv run analysis-support
 - `scamper_get_session`: セッション状況取得
 - `scamper_list_sessions`: 全セッション一覧
 - `scamper_generate_comprehensive`: 全技法適用による包括的アイデア生成
+
+#### PMBOK RBS（Risk Breakdown Structure）
+
+- `rbs_create_structure`: プロジェクトリスク分類構造作成
+- `rbs_identify_risks`: カテゴリ別リスク識別支援
+- `rbs_evaluate_risks`: リスク評価マトリックス生成
+- `rbs_get_analysis`: RBS分析状況取得
+- `rbs_list_analyses`: 全RBS分析一覧
+
+#### m-SHELLモデル（ヒューマンファクター分析）
+
+- `mshell_create_analysis`: m-SHELL分析開始
+- `mshell_analyze_element`: 特定要素分析
+- `mshell_analyze_interface`: 要素間インターフェース分析  
+- `mshell_evaluate_system`: システム全体評価
+- `mshell_get_analysis`: m-SHELL分析状況取得
+- `mshell_list_analyses`: 全m-SHELL分析一覧
 
 設定方法
 -------------------------
@@ -110,7 +135,7 @@ uv sync
 # 全テストの実行（コミット前に必須）
 uv run pytest -v
 
-# 型チェック（エラー0必須）
+# 型チェック
 uv run mypy src/
 
 # 開発モードで実行
